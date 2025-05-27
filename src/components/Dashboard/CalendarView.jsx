@@ -1,27 +1,34 @@
+
+
+
+
 // import React from 'react';
 // import { calendarData } from '../../data/calendarData';
 
 // const CalendarView = () => {
 //   return (
 //     <div className="bg-white p-4 rounded-2xl shadow-sm">
+//       {/* Header with Month and Arrows */}
 //       <div className="flex justify-between items-center mb-4">
 //         <h3 className="font-semibold text-lg">{calendarData.month}</h3>
-//         <div className="flex space-x-2 text-gray-400 text-sm">
+//         <div className="flex space-x-2 text-gray-400 text-sm cursor-pointer">
 //           <span>&lt;</span>
 //           <span>&gt;</span>
 //         </div>
 //       </div>
 
+//       {/* Weekdays */}
 //       <div className="grid grid-cols-7 text-xs text-center mb-2 font-medium text-gray-600">
 //         {calendarData.weekdays.map((day, i) => (
 //           <div key={i}>{day}</div>
 //         ))}
 //       </div>
 
-//       <div className="grid grid-cols-7 text-center text-sm gap-y-2 ">
+//       {/* Day Grid */}
+//       <div className="grid grid-cols-7 text-center text-sm gap-y-2">
 //         {calendarData.days.map((day, i) => (
 //           <div key={i}>
-//             <div className="font-medium">{day}</div>
+//             <div className="font-medium text-gray-700">{day}</div>
 //             {(calendarData.appointments[day] || []).map((time, idx) => (
 //               <div
 //                 key={idx}
@@ -33,17 +40,16 @@
 //           </div>
 //         ))}
 //       </div>
-// {/**this card are two two pair render  */}
-//       <div className="mt-4 space-y-2">
+
+//       {/* this card are two two pair render */}
+//       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
 //         {calendarData.highlights.map((item, i) => (
 //           <div
 //             key={i}
 //             className="bg-indigo-100 p-3 rounded-xl flex items-center justify-between"
 //           >
 //             <div>
-//               <p className="font-medium text-sm text-indigo-800">
-//                 {item.title}
-//               </p>
+//               <p className="font-medium text-sm text-indigo-800">{item.title}</p>
 //               <p className="text-xs text-gray-600">{item.time}</p>
 //               <p className="text-xs text-gray-500">{item.doctor}</p>
 //             </div>
@@ -58,6 +64,8 @@
 // export default CalendarView;
 
 
+
+/**++++++++++++++++++++++++++++++responsive+++++++++++++++++ */
 
 import React from 'react';
 import { calendarData } from '../../data/calendarData';
@@ -74,18 +82,18 @@ const CalendarView = () => {
         </div>
       </div>
 
-      {/* Weekdays */}
+      {/* Weekday Headers */}
       <div className="grid grid-cols-7 text-xs text-center mb-2 font-medium text-gray-600">
         {calendarData.weekdays.map((day, i) => (
           <div key={i}>{day}</div>
         ))}
       </div>
 
-      {/* Day Grid */}
-      <div className="grid grid-cols-7 text-center text-sm gap-y-2">
+      {/* Days with Appointments */}
+      <div className="grid grid-cols-7 text-center text-sm gap-y-2 text-gray-700">
         {calendarData.days.map((day, i) => (
           <div key={i}>
-            <div className="font-medium text-gray-700">{day}</div>
+            <div className="font-medium">{day}</div>
             {(calendarData.appointments[day] || []).map((time, idx) => (
               <div
                 key={idx}
@@ -98,19 +106,19 @@ const CalendarView = () => {
         ))}
       </div>
 
-      {/* this card are two two pair render */}
+      {/* Highlight Cards - Responsive Two-by-Two Grid */}
       <div className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-3">
         {calendarData.highlights.map((item, i) => (
           <div
             key={i}
-            className="bg-indigo-100 p-3 rounded-xl flex items-center justify-between"
+            className="bg-indigo-100 p-3 rounded-xl flex items-center justify-between min-h-[100px]"
           >
             <div>
               <p className="font-medium text-sm text-indigo-800">{item.title}</p>
               <p className="text-xs text-gray-600">{item.time}</p>
               <p className="text-xs text-gray-500">{item.doctor}</p>
             </div>
-            <div className="text-xl">{item.icon}</div>
+            <div className="text-xl text-indigo-600 shrink-0 ml-4">{item.icon}</div>
           </div>
         ))}
       </div>
